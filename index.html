@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Incremental</title>
+    </head>
+
+    <body style="display: flex;">
+
+        <div style="padding: 1%;">
+
+            <p id="main_counter">0</p>
+            <button onclick="increment()" id="increment">Increment by 1</button>
+
+            <br><br><br><br><br>
+
+            <button onclick="upgrade_1()" id="upgrade_1">Upgrade click value by x1.5</button>
+            <p id="upgrade_cost_1">0/10 Next cost: 15</p>
+
+            <br><br>
+
+            <button onclick="upgrade_2()" id="upgrade_2">Buy autoclicker</button>
+            <p id="upgrade_cost_2">0/6 Next cost: 200</p>
+            <p id="autoclicker_delay">Delay: 3.2s</p>
+
+        </div>
+
+        <div style="padding: 1%;">
+
+            <p id="research_counter">0</p>
+            <button onclick="convert_research()" id="convert_research">Convert 0 points into 0 research</button>
+            <p>Minimum points to convert: 10000</p>
+
+            <br><br>
+
+            <button onclick="upgrade_1r()" id="upgrade_1r">Upgrade click value by x2</button>
+            <p id="upgrade_cost_1r">0/5 Next cost: 5</p>
+
+            <br><br>
+
+            <button onclick="upgrade_2r()" id="upgrade_2r">Upgrade research gain by x1.2</button>
+            <p id="upgrade_cost_2r">0/6 Next cost: 10</p>
+
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
