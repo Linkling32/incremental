@@ -17,7 +17,12 @@ function upgrade_1(){
         main_score -= upgrade_cost_1;
         document.getElementById("main_counter").textContent = Math.round((main_score + Number.EPSILON) * 100) / 100;
         upgrade_cost_1 = 15 * 1.8 ** current_upgrade_1;
-        document.getElementById("upgrade_cost_1").textContent = `${current_upgrade_1}/10 Next cost: ${Math.round((upgrade_cost_1 + Number.EPSILON) * 100) / 100}`;
+        if (current_upgrade_1 == 10) {
+            document.getElementById("upgrade_cost_1").textContent = `Upgrade maxed!`
+        }
+        else {
+            document.getElementById("upgrade_cost_1").textContent = `${current_upgrade_1}/10 Next cost: ${Math.round((upgrade_cost_1 + Number.EPSILON) * 100) / 100}`;
+        }
     };
 };
 
@@ -33,8 +38,13 @@ function upgrade_2(){
         main_score -= upgrade_cost_2;
         document.getElementById("main_counter").textContent = Math.round((main_score + Number.EPSILON) * 100) / 100;
         upgrade_cost_2 = 200 * 1.5 * current_upgrade_2;
-        document.getElementById("upgrade_cost_2").textContent = `${current_upgrade_2}/6 Next cost: ${Math.round((upgrade_cost_2 + Number.EPSILON) * 100) / 100}`;
         document.getElementById("upgrade_2").textContent = "Divide autoclicker delay by 2";
+        if (current_upgrade_2 == 6) {
+            document.getElementById("upgrade_cost_2").textContent = `Upgrade maxed!`
+        }
+        else {
+            document.getElementById("upgrade_cost_2").textContent = `${current_upgrade_2}/6 Next cost: ${Math.round((upgrade_cost_2 + Number.EPSILON) * 100) / 100}`;
+        }
     };
 };
 
@@ -59,7 +69,7 @@ function actualize_research() {
     };
 };
 
-setInterval(actualize_research,1000);
+setInterval(actualize_research,100);
 
 function convert_research() {
     if (main_score >= 10000) {
@@ -91,7 +101,12 @@ function upgrade_1r(){
         research_score -= upgrade_cost_1r;
         document.getElementById("research_counter").textContent = Math.round((research_score + Number.EPSILON) * 100) / 100;
         upgrade_cost_1r = 10 * (current_upgrade_1r + 1)
-        document.getElementById("upgrade_cost_1r").textContent = `${current_upgrade_1r}/5 Next cost: ${Math.round((upgrade_cost_1r + Number.EPSILON) * 100) / 100}`;
+        if (current_upgrade_1r == 5) {
+            document.getElementById("upgrade_cost_1r").textContent = `Upgrade maxed!`
+        }
+        else {
+            document.getElementById("upgrade_cost_1r").textContent = `${current_upgrade_1r}/5 Next cost: ${Math.round((upgrade_cost_1r + Number.EPSILON) * 100) / 100}`;
+        }
     };
 };
 
@@ -105,10 +120,12 @@ function upgrade_2r(){
         research_score -= upgrade_cost_2r;
         document.getElementById("research_counter").textContent = Math.round((research_score + Number.EPSILON) * 100) / 100;
         upgrade_cost_2r = 10 * (1.5 * (current_upgrade_2r + 1))
-        document.getElementById("upgrade_cost_2r").textContent = `${current_upgrade_2r}/6 Next cost: ${Math.round((upgrade_cost_2r + Number.EPSILON) * 100) / 100}`;
+        
+        if (current_upgrade_1r == 6) {
+            document.getElementById("upgrade_cost_2r").textContent = `Upgrade maxed!`
+        }
+        else {
+            document.getElementById("upgrade_cost_2r").textContent = `${current_upgrade_2r}/6 Next cost: ${Math.round((upgrade_cost_2r + Number.EPSILON) * 100) / 100}`;
+        }
     };
-
 };
-
-
-
