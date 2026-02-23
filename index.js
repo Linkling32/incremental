@@ -1,20 +1,28 @@
 let main_score = 0;
+main_score = localStorage.getItem(main_score_saved);
 let click_gain = 1;
+click_gain = localStorage.getItem(click_gain_saved);
 
 function increment(){
     main_score += click_gain;
+    localStorage.setItem(main_score_saved, main_score);
     document.getElementById("main_counter").textContent = Math.round((main_score + Number.EPSILON) * 100) / 100;
 };
 
 let current_upgrade_1 = 0;
+current_upgrade_1 = localStorage.getItem(current_upgrade_1_saved);
 let upgrade_cost_1 = 15;
+upgrade_cost_1 = localStorage.getItem(upgrade_cost_1_saved);
 
 function upgrade_1(){
     if (main_score >= upgrade_cost_1 && current_upgrade_1 < 10) { 
         click_gain *= 1.5;
+        localStorage.setItem(click_gain_saved, click_gain);
         document.getElementById("increment").textContent = `Increment by ${Math.round((click_gain + Number.EPSILON) * 100) / 100}`;
         current_upgrade_1 += 1;
+        localStorage.setItem(current_upgrade_1_saved, current_upgrade_1);
         main_score -= upgrade_cost_1;
+        localStorage.setItem(main_score_saved, main_score);
         document.getElementById("main_counter").textContent = Math.round((main_score + Number.EPSILON) * 100) / 100;
         upgrade_cost_1 = 15 * 1.8 ** current_upgrade_1;
         document.getElementById("upgrade_cost_1").textContent = `${current_upgrade_1}/10 Next cost: ${Math.round((upgrade_cost_1 + Number.EPSILON) * 100) / 100}`;
@@ -109,4 +117,5 @@ function upgrade_2r(){
     };
 
 };
+
 
