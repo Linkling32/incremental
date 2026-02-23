@@ -52,7 +52,7 @@ let research_gain = 1;
 
 function actualize_research() {
     if (main_score >= 10000) {
-        document.getElementById("convert_research").textContent = `Convert ${Math.round((main_score + Number.EPSILON) * 100) / 100} points into ${(Math.round(((main_score - 9999) ** 0.3 + Number.EPSILON) * 100) / 100) * research_gain} research`;
+        document.getElementById("convert_research").textContent = `Convert ${Math.round((main_score + Number.EPSILON) * 100) / 100} points into ${(Math.round((((main_score - 9999) ** 0.3) * research_gain + Number.EPSILON) * 100) / 100)} research`;
     }
     else {
         document.getElementById("convert_research").textContent = `Convert ${Math.round((main_score + Number.EPSILON) * 100) / 100} points into 0 research`;
@@ -109,4 +109,5 @@ function upgrade_2r(){
     };
 
 };
+
 
