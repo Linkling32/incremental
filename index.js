@@ -67,7 +67,7 @@ function convert_research() {
         document.getElementById("research_counter").textContent = research_score;
         main_score = 0;
         document.getElementById("main_counter").textContent = 0;
-        click_gain = 1;
+        click_gain = 2 ** current_upgrade_1r;
         document.getElementById("increment").textContent = `Increment by 1`;
         current_upgrade_1 = 0;
         upgrade_cost_1 = 15;
@@ -107,4 +107,5 @@ function upgrade_2r(){
         upgrade_cost_2r = 10 * 1.5 * (current_upgrade_1r + 1)
         document.getElementById("upgrade_cost_2r").textContent = `${current_upgrade_2r}/6 Next cost: ${Math.round((upgrade_cost_2r + Number.EPSILON) * 100) / 100}`;
     };
+
 };
