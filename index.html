@@ -2,11 +2,32 @@
 <html>
     <head>
         <title>Incremental</title>
+        <style>
+            body {
+                background-color: rgb(244, 162, 97);
+                display: flex;
+            }
+
+            button {
+                background-color: rgb(244, 205, 140);
+                font-size: 15px;
+            }
+
+            p {
+                font-size: 20px;
+                margin-top: 5%;
+            }
+
+            div {
+                padding: 1%;
+                margin-right: 2%;
+            }
+        </style>
     </head>
 
-    <body style="display: flex;">
+    <body>
 
-        <div style="padding: 1%;">
+        <div>
 
             <p id="main_counter">0</p>
             <button onclick="increment()" id="increment">Increment by 1</button>
@@ -24,7 +45,7 @@
 
         </div>
 
-        <div style="padding: 1%;">
+        <div>
 
             <p id="research_counter">0</p>
             <button onclick="convert_research()" id="convert_research">Convert 0 points into 0 research</button>
