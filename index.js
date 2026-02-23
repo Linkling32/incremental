@@ -68,7 +68,7 @@ function convert_research() {
         main_score = 0;
         document.getElementById("main_counter").textContent = 0;
         click_gain = 2 ** current_upgrade_1r;
-        document.getElementById("increment").textContent = `Increment by 1`;
+        document.getElementById("increment").textContent = `Increment by ${2 ** current_upgrade_1r}`;
         current_upgrade_1 = 0;
         upgrade_cost_1 = 15;
         document.getElementById("upgrade_cost_1").textContent = `0/10 Next cost: 15`;
@@ -109,3 +109,4 @@ function upgrade_2r(){
     };
 
 };
+
