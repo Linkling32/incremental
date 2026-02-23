@@ -63,7 +63,7 @@ setInterval(actualize_research,1000);
 
 function convert_research() {
     if (main_score >= 10000) {
-        research_score += (Math.round((((main_score - 9999) ** 0.3) + Number.EPSILON) * 100) / 100) * research_gain;
+        research_score += (Math.round((((main_score - 9999) ** 0.3) * research_gain + Number.EPSILON) * 100) / 100);
         document.getElementById("research_counter").textContent = research_score;
         main_score = 0;
         document.getElementById("main_counter").textContent = 0;
@@ -109,3 +109,4 @@ function upgrade_2r(){
     };
 
 };
+
