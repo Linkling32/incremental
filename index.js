@@ -66,7 +66,7 @@ let research_gain = 1;
 
 function actualize_research() {
     if (main_score >= 10000) {
-        document.getElementById("convert_research").textContent = `Convert ${approx(main_score)} points into ${approx(((main_score - 9999) ** 0.2) * research_gain)} research`;
+        document.getElementById("convert_research").textContent = `Convert ${approx(main_score)} points into ${approx(((main_score - 9999) ** 0.3) * research_gain)} research`;
     }
     else {
         document.getElementById("convert_research").textContent = `Convert ${approx(main_score)} points into 0 research`;
@@ -77,7 +77,7 @@ setInterval(actualize_research,100);
 
 function convert_research() {
     if (main_score >= 10000) {
-        research_score = approx(research_score + ((main_score - 9999) ** 0.2) * research_gain);
+        research_score = approx(research_score + ((main_score - 9999) ** 0.3) * research_gain);
         document.getElementById("research_counter").textContent = research_score;
         main_score = 0;
         document.getElementById("main_counter").textContent = 0;
@@ -133,3 +133,4 @@ function upgrade_2r(){
         }
     };
 };
+
