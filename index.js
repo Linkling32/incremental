@@ -134,7 +134,7 @@ function convert_research() {
     if (main_score >= 10000) {
         research_score = approx(research_score + ((main_score - 9999) ** 0.3) * research_gain);
         localStorage.setItem("research_score", research_score);
-        document.getElementById("research_counter").textContent = research_score;
+        document.getElementById("research_counter").textContent = approx(research_score);
         main_score = 0;
         localStorage.setItem("main_score", main_score);
         document.getElementById("main_counter").textContent = 0;
@@ -227,4 +227,5 @@ function upgrade_2r(){
         }
     };
 };
+
 
