@@ -124,8 +124,7 @@ function upgrade_2r(){
         research_score -= upgrade_cost_2r;
         document.getElementById("research_counter").textContent = approx(research_score);
         upgrade_cost_2r = (1.3 ** current_upgrade_2r) * 10
-        
-        if (current_upgrade_1r == 6) {
+        if (current_upgrade_2r == 6) {
             document.getElementById("upgrade_cost_2r").textContent = `Upgrade maxed!`
         }
         else {
@@ -133,5 +132,6 @@ function upgrade_2r(){
         }
     };
 };
+
 
 
