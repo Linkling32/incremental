@@ -6,6 +6,8 @@ if (localStorage.getItem("main_score") !== null) {
 if (localStorage.getItem("click_gain") !== null) {
     click_gain = parseFloat(localStorage.getItem("click_gain"));
 };
+document.getElementById("main_counter").textContent = approx(main_score);
+document.getElementById("increment").textContent = `Increment by ${approx(click_gain)}`;
 
 function approx(num) {
     return Math.round((num + Number.EPSILON) * 100) / 100;
@@ -25,6 +27,12 @@ if (localStorage.getItem("current_upgrade_1") !== null) {
 if (localStorage.getItem("upgrade_cost_1") !== null) {
     upgrade_cost_1 = parseFloat(localStorage.getItem("upgrade_cost_1"));
 };
+if (current_upgrade_1 == 10) {
+    document.getElementById("upgrade_cost_1").textContent = `Upgrade maxed!`
+}
+else {
+    document.getElementById("upgrade_cost_1").textContent = `${current_upgrade_1}/10 Next cost: ${approx(upgrade_cost_1)}`;
+}
 
 function upgrade_1(){
     if (main_score >= upgrade_cost_1 && current_upgrade_1 < 10) { 
@@ -59,6 +67,16 @@ if (localStorage.getItem("upgrade_cost_2") !== null) {
 if (localStorage.getItem("autoclicker_delay") !== null) {
     autoclicker_delay = parseFloat(localStorage.getItem("autoclicker_delay"));
 };
+if (current_upgrade_2 > 0) {
+    document.getElementById("upgrade_2").textContent = "Divide autoclicker delay by 2";
+}
+if (current_upgrade_2 == 6) {
+    document.getElementById("upgrade_cost_2").textContent = `Upgrade maxed!`
+}
+else {
+    document.getElementById("upgrade_cost_2").textContent = `${current_upgrade_2}/6 Next cost: ${approx(upgrade_cost_2)}`;
+}
+document.getElementById("autoclicker_delay").textContent = `Delay: ${autoclicker_delay}s`;
 
 function upgrade_2(){
     if (main_score >= upgrade_cost_2 && current_upgrade_2 < 6) {
@@ -99,6 +117,7 @@ if (localStorage.getItem("research_score") !== null) {
 if (localStorage.getItem("research_gain") !== null) {
     research_gain = parseFloat(localStorage.getItem("research_gain"));
 };
+document.getElementById("research_counter").textContent = research_score;
 
 function actualize_research() {
     if (main_score >= 10000) {
@@ -146,6 +165,12 @@ if (localStorage.getItem("current_upgrade_1r") !== null) {
 if (localStorage.getItem("upgrade_cost_1r") !== null) {
     upgrade_cost_1r = parseFloat(localStorage.getItem("upgrade_cost_1r"));
 };
+if (current_upgrade_1r == 5) {
+    document.getElementById("upgrade_cost_1r").textContent = `Upgrade maxed!`
+}
+else {
+    document.getElementById("upgrade_cost_1r").textContent = `${current_upgrade_1r}/5 Next cost: ${approx(upgrade_cost_1r)}`;
+}
 
 function upgrade_1r(){
     if (research_score >= upgrade_cost_1r && current_upgrade_1r < 5) {
@@ -176,6 +201,12 @@ if (localStorage.getItem("current_upgrade_2r") !== null) {
 if (localStorage.getItem("upgrade_cost_2r") !== null) {
     upgrade_cost_2r = parseFloat(localStorage.getItem("upgrade_cost_2r"));
 };
+if (current_upgrade_2r == 6) {
+    document.getElementById("upgrade_cost_2r").textContent = `Upgrade maxed!`
+}
+else {
+    document.getElementById("upgrade_cost_2r").textContent = `${current_upgrade_2r}/6 Next cost: ${approx(upgrade_cost_2r)}`;
+}
 
 function upgrade_2r(){
     if (research_score >= upgrade_cost_2r && current_upgrade_2r < 6) {
