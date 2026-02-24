@@ -117,7 +117,7 @@ if (localStorage.getItem("research_score") !== null) {
 if (localStorage.getItem("research_gain") !== null) {
     research_gain = parseFloat(localStorage.getItem("research_gain"));
 };
-document.getElementById("research_counter").textContent = research_score;
+document.getElementById("research_counter").textContent = approx(research_score);
 
 function actualize_research() {
     if (main_score >= 10000) {
@@ -227,3 +227,4 @@ function upgrade_2r(){
         }
     };
 };
+
