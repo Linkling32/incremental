@@ -115,7 +115,7 @@ function upgrade_2(){
         document.getElementById("upgrade_2").textContent = "Divide autoclicker delay by 2";
         if (current_upgrade_2 == 6) {
             document.getElementById("upgrade_cost_2").textContent = `Upgrade maxed!`;
-        };
+        }
         else {
             document.getElementById("upgrade_cost_2").textContent = `${current_upgrade_2}/6 Next cost: ${approx(upgrade_cost_2)}`;
         }
@@ -252,4 +252,5 @@ if (localStorage.getItem("prestige_gain") !== null) {
     prestige_gain = parseFloat(localStorage.getItem("prestige_gain"));
 };
 document.getElementById("prestige_counter").textContent = approx(prestige_score);
+
 
