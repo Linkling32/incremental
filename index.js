@@ -14,6 +14,16 @@ function approx(num) {
     return Math.round((num + Number.EPSILON) * 100) / 100;
 };
 
+let research_score = 0;
+let research_gain = 1;
+if (localStorage.getItem("research_score") !== null) {
+    research_score = parseFloat(localStorage.getItem("research_score"));
+};
+if (localStorage.getItem("research_gain") !== null) {
+    research_gain = parseFloat(localStorage.getItem("research_gain"));
+};
+document.getElementById("research_counter").textContent = approx(research_score);
+
 function actualize_research() {
     if (main_score >= 10000) {
         document.getElementById("convert_research").textContent = `Convert ${approx(main_score)} points into ${approx(((main_score - 9999) ** 0.3) * research_gain)} research`;
@@ -23,9 +33,19 @@ function actualize_research() {
     };
 };
 
+let prestige_score = 0;
+let prestige_gain = 1;
+if (localStorage.getItem("prestige_score") !== null) {
+    prestige_score = parseFloat(localStorage.getItem("prestige_score"));
+};
+if (localStorage.getItem("prestige_gain") !== null) {
+    prestige_gain = parseFloat(localStorage.getItem("prestige_gain"));
+};
+document.getElementById("prestige_counter").textContent = approx(prestige_score);
+
 function actualize_prestige() {
     if (main_score >= 1000000) {
-        document.getElementById("convert_prestige").textContent = `Convert ${approx(main_score)} points into ${approx(((main_score - 9999) ** 0.1) * prestige_gain)} prestige`;
+        document.getElementById("convert_prestige").textContent = `Convert ${approx(main_score)} points into ${approx(((main_score - 999999) ** 0.1) * prestige_gain)} prestige`;
     }
     else {
         document.getElementById("convert_prestige").textContent = `Convert ${approx(main_score)} points into 0 prestige`;
@@ -88,6 +108,9 @@ if (localStorage.getItem("upgrade_cost_2") !== null) {
 };
 if (localStorage.getItem("autoclicker_delay") !== null) {
     autoclicker_delay = parseFloat(localStorage.getItem("autoclicker_delay"));
+    if (autoclicker_delay > 3.2) {
+        autoclicker_delay = 3.2
+    }
 };
 if (current_upgrade_2 > 0) {
     document.getElementById("upgrade_2").textContent = "Divide autoclicker delay by 2";
@@ -131,16 +154,6 @@ function autoclick() {
 };
 
 autoclick();
-
-let research_score = 0;
-let research_gain = 1;
-if (localStorage.getItem("research_score") !== null) {
-    research_score = parseFloat(localStorage.getItem("research_score"));
-};
-if (localStorage.getItem("research_gain") !== null) {
-    research_gain = parseFloat(localStorage.getItem("research_gain"));
-};
-document.getElementById("research_counter").textContent = approx(research_score);
 
 function convert_research() {
     if (main_score >= 10000) {
@@ -243,14 +256,44 @@ function upgrade_2r(){
     };
 };
 
-let prestige_score = 0;
-let prestige_gain = 1;
-if (localStorage.getItem("prestige_score") !== null) {
-    prestige_score = parseFloat(localStorage.getItem("prestige_score"));
+function convert_prestige() {
+    if (main_score >= 1000000) {
+        prestige_score = approx(prestige_score + ((main_score - 999999) ** 0.1) * prestige_gain);
+        localStorage.setItem("prestige_gain", prestige_gain);
+        document.getElementById("prestige_counter").textContent = approx(prestige_score);
+        main_score = 0;
+        localStorage.setItem("main_score", main_score);
+        document.getElementById("main_counter").textContent = 0;
+        click_gain = 2 ** current_upgrade_1r;
+        localStorage.setItem("click_gain", click_gain);
+        document.getElementById("increment").textContent = `Increment by ${2 ** current_upgrade_1r}`;
+        current_upgrade_1 = 0;
+        localStorage.setItem("current_upgrade_1", current_upgrade_1);
+        upgrade_cost_1 = 15;
+        localStorage.setItem("upgrade_cost_1", upgrade_cost_1);
+        document.getElementById("upgrade_cost_1").textContent = `0/10 Next cost: 15`;
+        current_upgrade_2 = 0;
+        localStorage.setItem("current_upgrade_2", current_upgrade_2);
+        upgrade_cost_2 = 200;
+        localStorage.setItem("upgrade_cost_2", upgrade_cost_2);
+        document.getElementById("upgrade_cost_2").textContent = `0/6 Next cost: 200`;
+        autoclicker_delay = 6.4;
+        localStorage.setItem("autoclicker_delay", autoclicker_delay);
+        document.getElementById("autoclicker_delay").textContent = `Delay: 3.2s`;
+        research_score = 0;
+        localStorage.setItem("research_score", research_score);
+        actualize_research()
+        research_gain = 1;
+        localStorage.setItem("research_gain", research_gain);
+        current_upgrade_1r = 0;
+        localStorage.setItem("current_upgrade_1r", current_upgrade_1r);
+        upgrade_cost_1r = 5;
+        localStorage.setItem("upgrade_cost_1r", upgrade_cost_1r);
+        document.getElementById("upgrade_cost_1r").textContent = `0/5 Next cost: 5`;
+        current_upgrade_2r = 0;
+        localStorage.setItem("current_upgrade_2r", current_upgrade_2);
+        upgrade_cost_2r = 10;
+        localStorage.setItem("upgrade_cost_2r", upgrade_cost_2);
+        document.getElementById("upgrade_cost_2r").textContent = `0/6 Next cost: 10`;
+    };
 };
-if (localStorage.getItem("prestige_gain") !== null) {
-    prestige_gain = parseFloat(localStorage.getItem("prestige_gain"));
-};
-document.getElementById("prestige_counter").textContent = approx(prestige_score);
-
-
