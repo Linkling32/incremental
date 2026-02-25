@@ -36,8 +36,8 @@ function increment(){
     main_score += click_gain;
     localStorage.setItem("main_score", main_score);
     document.getElementById("main_counter").textContent = approx(main_score);
-    actualize_research()
-    actualize_prestige()
+    actualize_research();
+    actualize_prestige();
 };
 
 let current_upgrade_1 = 0;
@@ -114,12 +114,12 @@ function upgrade_2(){
         localStorage.setItem("upgrade_cost_2", upgrade_cost_2);
         document.getElementById("upgrade_2").textContent = "Divide autoclicker delay by 2";
         if (current_upgrade_2 == 6) {
-            document.getElementById("upgrade_cost_2").textContent = `Upgrade maxed!`
-        }
+            document.getElementById("upgrade_cost_2").textContent = `Upgrade maxed!`;
+        };
         else {
             document.getElementById("upgrade_cost_2").textContent = `${current_upgrade_2}/6 Next cost: ${approx(upgrade_cost_2)}`;
         }
-        actualize_research()
+        actualize_research();
     };
 };
 
@@ -252,3 +252,4 @@ if (localStorage.getItem("prestige_gain") !== null) {
     prestige_gain = parseFloat(localStorage.getItem("prestige_gain"));
 };
 document.getElementById("prestige_counter").textContent = approx(prestige_score);
+
