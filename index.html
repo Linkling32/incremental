@@ -3,9 +3,13 @@
     <head>
         <title>Incremental</title>
         <style>
-            body {
+            .main {
                 background-color: rgb(244, 162, 97);
                 display: flex;
+            }
+
+            body {
+                background-color: rgb(244, 162, 97);
             }
 
             button {
@@ -19,48 +23,67 @@
             }
 
             div {
-                padding: 1%;
+                padding: 0.5%;
                 margin-right: 2%;
             }
         </style>
     </head>
 
     <body>
+        <div class="main">
+            <div>
 
-        <div>
+                <p id="main_counter">0</p>
+                <button onclick="increment()" id="increment">Increment by 1</button>
 
-            <p id="main_counter">0</p>
-            <button onclick="increment()" id="increment">Increment by 1</button>
+                <br><br><br><br><br>
 
-            <br><br><br><br><br>
+                <button onclick="upgrade_1()" id="upgrade_1">Upgrade click value by x1.5</button>
+                <p id="upgrade_cost_1">0/10 Next cost: 15</p>
 
-            <button onclick="upgrade_1()" id="upgrade_1">Upgrade click value by x1.5</button>
-            <p id="upgrade_cost_1">0/10 Next cost: 15</p>
+                <br><br>
 
-            <br><br>
+                <button onclick="upgrade_2()" id="upgrade_2">Buy autoclicker</button>
+                <p id="upgrade_cost_2">0/6 Next cost: 200</p>
+                <p id="autoclicker_delay">Delay: 3.2s</p>
 
-            <button onclick="upgrade_2()" id="upgrade_2">Buy autoclicker</button>
-            <p id="upgrade_cost_2">0/6 Next cost: 200</p>
-            <p id="autoclicker_delay">Delay: 3.2s</p>
+            </div>
 
-        </div>
+            <div>
 
-        <div>
+                <p id="research_counter">0</p>
+                <button onclick="convert_research()" id="convert_research">Convert 0 points into 0 research</button>
+                <p>Minimum points to convert: 10,000</p>
 
-            <p id="research_counter">0</p>
-            <button onclick="convert_research()" id="convert_research">Convert 0 points into 0 research</button>
-            <p>Minimum points to convert: 10,000</p>
+                <br><br>
 
-            <br><br>
+                <button onclick="upgrade_1r()" id="upgrade_1r">Upgrade click value by x2</button>
+                <p id="upgrade_cost_1r">0/5 Next cost: 5</p>
 
-            <button onclick="upgrade_1r()" id="upgrade_1r">Upgrade click value by x2</button>
-            <p id="upgrade_cost_1r">0/5 Next cost: 5</p>
+                <br><br>
 
-            <br><br>
+                <button onclick="upgrade_2r()" id="upgrade_2r">Upgrade research gain by x1.2</button>
+                <p id="upgrade_cost_2r">0/6 Next cost: 10</p>
 
-            <button onclick="upgrade_2r()" id="upgrade_2r">Upgrade research gain by x1.2</button>
-            <p id="upgrade_cost_2r">0/6 Next cost: 10</p>
+            </div>
 
+            <div>
+
+                <p id="prestige_counter">0</p>
+                <button onclick="convert_prestige()" id="convert_prestige">Convert 0 points into 0 prestige</button>
+                <p>Minimum points to prestige: 1 million</p>
+
+                <br><br>
+
+                <button onclick="upgrade_1p()" id="upgrade_1p"></button>
+                <p id="upgrade_cost_1p">0/0 Next cost: 0</p>
+
+                <br><br>
+
+                <button onclick="upgrade_2p()" id="upgrade_2p"></button>
+                <p id="upgrade_cost_2p">0/0 Next cost: 0</p>
+
+            </div>
         </div>
         <script src="index.js"></script>
     </body>
