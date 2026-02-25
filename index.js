@@ -23,11 +23,21 @@ function actualize_research() {
     };
 };
 
+function actualize_prestige() {
+    if (main_score >= 1000000) {
+        document.getElementById("convert_prestige").textContent = `Convert ${approx(main_score)} points into ${approx(((main_score - 9999) ** 0.1) * prestige_gain)} prestige`;
+    }
+    else {
+        document.getElementById("convert_prestige").textContent = `Convert ${approx(main_score)} points into 0 prestige`;
+    };
+};
+
 function increment(){
     main_score += click_gain;
     localStorage.setItem("main_score", main_score);
     document.getElementById("main_counter").textContent = approx(main_score);
     actualize_research()
+    actualize_prestige()
 };
 
 let current_upgrade_1 = 0;
@@ -185,7 +195,7 @@ function upgrade_1r(){
         research_score -= upgrade_cost_1r;
         localStorage.setItem("research_score", research_score);
         document.getElementById("research_counter").textContent = approx(research_score);
-        upgrade_cost_1r = 10 * (current_upgrade_1r + 1)
+        upgrade_cost_1r = 25 * (current_upgrade_1r + 1)
         localStorage.setItem("upgrade_cost_1r", upgrade_cost_1r);
         if (current_upgrade_1r == 5) {
             document.getElementById("upgrade_cost_1r").textContent = `Upgrade maxed!`
@@ -242,12 +252,3 @@ if (localStorage.getItem("prestige_gain") !== null) {
     prestige_gain = parseFloat(localStorage.getItem("prestige_gain"));
 };
 document.getElementById("prestige_counter").textContent = approx(prestige_score);
-
-function actualize_prestige() {
-    if (main_score >= 1000000) {
-        document.getElementById("convert_prestige").textContent = `Convert ${approx(main_score)} points into ${approx(((main_score - 9999) ** 0.1) * prestige_gain)} prestige`;
-    }
-    else {
-        document.getElementById("convert_prestige").textContent = `Convert ${approx(main_score)} points into 0 prestige`;
-    };
-};
