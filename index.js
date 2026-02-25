@@ -3,6 +3,7 @@ let click_gain = 1;
 if (localStorage.getItem("main_score") !== null) {
     main_score = parseFloat(localStorage.getItem("main_score"));
 };
+
 if (localStorage.getItem("click_gain") !== null) {
     click_gain = parseFloat(localStorage.getItem("click_gain"));
 };
@@ -13,10 +14,20 @@ function approx(num) {
     return Math.round((num + Number.EPSILON) * 100) / 100;
 };
 
+function actualize_research() {
+    if (main_score >= 10000) {
+        document.getElementById("convert_research").textContent = `Convert ${approx(main_score)} points into ${approx(((main_score - 9999) ** 0.3) * research_gain)} research`;
+    }
+    else {
+        document.getElementById("convert_research").textContent = `Convert ${approx(main_score)} points into 0 research`;
+    };
+};
+
 function increment(){
     main_score += click_gain;
     localStorage.setItem("main_score", main_score);
     document.getElementById("main_counter").textContent = approx(main_score);
+    actualize_research()
 };
 
 let current_upgrade_1 = 0;
@@ -52,6 +63,7 @@ function upgrade_1(){
         else {
             document.getElementById("upgrade_cost_1").textContent = `${current_upgrade_1}/10 Next cost: ${approx(upgrade_cost_1)}`;
         }
+        actualize_research()
     };
 };
 
@@ -97,6 +109,7 @@ function upgrade_2(){
         else {
             document.getElementById("upgrade_cost_2").textContent = `${current_upgrade_2}/6 Next cost: ${approx(upgrade_cost_2)}`;
         }
+        actualize_research()
     };
 };
 
@@ -118,17 +131,6 @@ if (localStorage.getItem("research_gain") !== null) {
     research_gain = parseFloat(localStorage.getItem("research_gain"));
 };
 document.getElementById("research_counter").textContent = approx(research_score);
-
-function actualize_research() {
-    if (main_score >= 10000) {
-        document.getElementById("convert_research").textContent = `Convert ${approx(main_score)} points into ${approx(((main_score - 9999) ** 0.3) * research_gain)} research`;
-    }
-    else {
-        document.getElementById("convert_research").textContent = `Convert ${approx(main_score)} points into 0 research`;
-    };
-};
-
-setInterval(actualize_research,100);
 
 function convert_research() {
     if (main_score >= 10000) {
@@ -154,6 +156,7 @@ function convert_research() {
         autoclicker_delay = 6.4;
         localStorage.setItem("autoclicker_delay", autoclicker_delay);
         document.getElementById("autoclicker_delay").textContent = `Delay: 3.2s`;
+        actualize_research()
     };
 };
 
@@ -190,6 +193,7 @@ function upgrade_1r(){
         else {
             document.getElementById("upgrade_cost_1r").textContent = `${current_upgrade_1r}/5 Next cost: ${approx(upgrade_cost_1r)}`;
         }
+        actualize_research()
     };
 };
 
@@ -225,7 +229,25 @@ function upgrade_2r(){
         else {
             document.getElementById("upgrade_cost_2r").textContent = `${current_upgrade_2r}/6 Next cost: ${approx(upgrade_cost_2r)}`;
         }
+        actualize_research()
     };
 };
 
+let prestige_score = 0;
+let prestige_gain = 1;
+if (localStorage.getItem("prestige_score") !== null) {
+    prestige_score = parseFloat(localStorage.getItem("prestige_score"));
+};
+if (localStorage.getItem("prestige_gain") !== null) {
+    prestige_gain = parseFloat(localStorage.getItem("prestige_gain"));
+};
+document.getElementById("prestige_counter").textContent = approx(prestige_score);
 
+function actualize_prestige() {
+    if (main_score >= 1000000) {
+        document.getElementById("convert_prestige").textContent = `Convert ${approx(main_score)} points into ${approx(((main_score - 9999) ** 0.1) * prestige_gain)} prestige`;
+    }
+    else {
+        document.getElementById("convert_prestige").textContent = `Convert ${approx(main_score)} points into 0 prestige`;
+    };
+};
