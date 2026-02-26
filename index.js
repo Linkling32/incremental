@@ -302,4 +302,7 @@ function convert_prestige() {
     };
 };
 
-
+function wipe_all_data() {
+    localStorage.clear();
+    location.reload();
+};
