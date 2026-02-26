@@ -184,7 +184,7 @@ function convert_research() {
 };
 
 let current_upgrade_1r = 0;
-let upgrade_cost_1r = 5;
+let upgrade_cost_1r = 25;
 if (localStorage.getItem("current_upgrade_1r") !== null) {
     current_upgrade_1r = parseFloat(localStorage.getItem("current_upgrade_1r"));
 };
@@ -297,3 +297,4 @@ function convert_prestige() {
         document.getElementById("upgrade_cost_2r").textContent = `0/6 Next cost: 10`;
     };
 };
+
