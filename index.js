@@ -33,6 +33,8 @@ function actualize_research() {
     };
 };
 
+actualize_research()
+
 let prestige_score = 0;
 let prestige_gain = 1;
 if (localStorage.getItem("prestige_score") !== null) {
@@ -51,6 +53,8 @@ function actualize_prestige() {
         document.getElementById("convert_prestige").textContent = `Convert ${approx(main_score)} points into 0 prestige`;
     };
 };
+
+actualize_prestige()
 
 function increment(){
     main_score += click_gain;
@@ -297,4 +301,5 @@ function convert_prestige() {
         document.getElementById("upgrade_cost_2r").textContent = `0/6 Next cost: 10`;
     };
 };
+
 
