@@ -248,15 +248,15 @@ function upgrade_2r(){
         research_score -= upgrade_cost_2r;
         localStorage.setItem("research_score", research_score);
         document.getElementById("research_counter").textContent = approx(research_score);
-        upgrade_cost_2r = (1.3 ** current_upgrade_2r) * 10
+        upgrade_cost_2r = (1.3 ** current_upgrade_2r) * 10;
         localStorage.setItem("upgrade_cost_2r", upgrade_cost_2r);
         if (current_upgrade_2r == 6) {
-            document.getElementById("upgrade_cost_2r").textContent = `Upgrade maxed!`
+            document.getElementById("upgrade_cost_2r").textContent = `Upgrade maxed!`;
         }
         else {
             document.getElementById("upgrade_cost_2r").textContent = `${current_upgrade_2r}/6 Next cost: ${approx(upgrade_cost_2r)}`;
-        }
-        actualize_research()
+        };
+        actualize_research();
     };
 };
 
@@ -301,6 +301,8 @@ function convert_prestige() {
         document.getElementById("upgrade_cost_2r").textContent = `0/6 Next cost: 10`;
     };
 };
+
+
 
 function wipe_all_data() {
     localStorage.clear();
