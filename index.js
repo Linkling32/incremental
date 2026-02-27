@@ -1,3 +1,4 @@
+
 let main_score = 0;
 let click_gain = 1;
 if (localStorage.getItem("main_score") !== null) {
@@ -301,8 +302,6 @@ function convert_prestige() {
         document.getElementById("upgrade_cost_2r").textContent = `0/6 Next cost: 10`;
     };
 };
-
-
 
 function wipe_all_data() {
     localStorage.clear();
