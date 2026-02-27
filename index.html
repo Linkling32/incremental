@@ -4,27 +4,39 @@
         <title>Incremental</title>
         <style>
             .main {
-                background-color: rgb(244, 162, 97);
                 display: flex;
+                flex-wrap: wrap;
             }
 
             body {
-                background-color: rgb(244, 162, 97);
+                background-color: rgb(52, 46, 82);
             }
 
             button {
-                background-color: rgb(244, 205, 140);
                 font-size: 20px;
                 padding: 10px;
                 border-radius: 8px;
                 text-align: center;
                 cursor: pointer;
-                border: none;
+                border-color: black;
+            }
+
+            .point_upgrade {
+                background-color: rgb(180, 180, 180);
+            }
+
+            .research_upgrade {
+                background-color: rgb(161, 151, 255);
+            }
+
+            .prestige_upgrade {
+                background-color: rgb(255, 198, 113);
             }
 
             p {
-                font-size: 25px;
+                font-size: 20px;
                 margin-top: 5%;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
             }
 
             div {
@@ -36,56 +48,56 @@
 
     <body>
         <div class="main">
-            <div>
+            <div style="width: 15%; background-color: rgb(206, 206, 206); display: flex; flex-direction: column;">
 
                 <p id="main_counter">0</p>
-                <button onclick="increment()" id="increment"></button>
+                <button onclick="increment()" id="increment" class="point_upgrade"></button>
 
                 <br><br><br><br><br>
 
-                <button onclick="upgrade_1()" id="upgrade_1">Upgrade click value by x1.5</button>
+                <button onclick="upgrade_1()" id="upgrade_1" class="point_upgrade">Upgrade click value by x1.5</button>
                 <p id="upgrade_cost_1"></p>
 
                 <br><br>
 
-                <button onclick="upgrade_2()" id="upgrade_2">Buy autoclicker</button>
+                <button onclick="upgrade_2()" id="upgrade_2" class="point_upgrade">Buy autoclicker</button>
                 <p id="upgrade_cost_2"></p>
                 <p id="autoclicker_delay">Delay: 3.2s</p>
 
             </div>
 
-            <div>
+            <div style="width: 15%; background-color: rgb(191, 184, 255); display: flex; flex-direction: column;">
 
                 <p id="research_counter">0</p>
-                <button onclick="convert_research()" id="convert_research">Convert 0 points into 0 research</button>
+                <button onclick="convert_research()" id="convert_research" class="research_upgrade">Convert 0 points into 0 research</button>
                 <p>Minimum points to convert: 10,000</p>
 
                 <br><br>
 
-                <button onclick="upgrade_1r()" id="upgrade_1r">Upgrade click value by x2</button>
+                <button onclick="upgrade_1r()" id="upgrade_1r" class="research_upgrade">Upgrade click value by x2</button>
                 <p id="upgrade_cost_1r"></p>
 
                 <br><br>
 
-                <button onclick="upgrade_2r()" id="upgrade_2r">Upgrade research gain by x1.2</button>
+                <button onclick="upgrade_2r()" id="upgrade_2r" class="research_upgrade">Upgrade research gain by x1.2</button>
                 <p id="upgrade_cost_2r"></p>
 
             </div>
 
-            <div>
+            <div style="width: 15%; background-color: rgb(255, 216, 158); display: flex; flex-direction: column;">
 
                 <p id="prestige_counter">0</p>
-                <button onclick="convert_prestige()" id="convert_prestige">Convert 0 points into 0 prestige</button>
+                <button onclick="convert_prestige()" id="convert_prestige" class="prestige_upgrade">Convert 0 points into 0 prestige</button>
                 <p>Minimum points to prestige: 1 million</p>
 
                 <br><br>
 
-                <button onclick="upgrade_1p()" id="upgrade_1p"></button>
+                <button onclick="upgrade_1p()" id="upgrade_1p" class="prestige_upgrade"></button>
                 <p id="upgrade_cost_1p"></p>
 
                 <br><br>
 
-                <button onclick="upgrade_2p()" id="upgrade_2p"></button>
+                <button onclick="upgrade_2p()" id="upgrade_2p" class="prestige_upgrade"></button>
                 <p id="upgrade_cost_2p"></p>
 
             </div>
@@ -96,7 +108,3 @@
         <script src="index.js"></script>
     </body>
 </html>
-
-
-
-
