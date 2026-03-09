@@ -47,7 +47,7 @@ document.getElementById("prestige_counter").textContent = approx(prestige_score)
 
 function actualize_prestige() {
     if (main_score >= 1000000) {
-        document.getElementById("convert_prestige").textContent = `Convert ${approx(main_score)} points into ${approx(((main_score - 999999) ** 0.1) * prestige_gain)} prestige`;
+        document.getElementById("convert_prestige").textContent = `Convert ${approx(main_score)} points into ${approx(((main_score - 999999) ** 0.15) * prestige_gain)} prestige`;
     }
     else {
         document.getElementById("convert_prestige").textContent = `Convert ${approx(main_score)} points into 0 prestige`;
@@ -265,7 +265,7 @@ function upgrade_2r(){
 
 function convert_prestige() {
     if (main_score >= 1000000) {
-        prestige_score = approx(prestige_score + ((main_score - 999999) ** 0.1) * prestige_gain);
+        prestige_score = approx(prestige_score + ((main_score - 999999) ** 0.15) * prestige_gain);
         localStorage.setItem("prestige_gain", prestige_gain);
         document.getElementById("prestige_counter").textContent = approx(prestige_score);
         main_score = 0;
@@ -344,4 +344,5 @@ function wipe_all_data() {
     localStorage.clear();
     location.reload();
 };
+
 
