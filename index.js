@@ -332,7 +332,7 @@ function upgrade_1p(){
         localStorage.setItem("current_upgrade_1r", current_upgrade_1r);
         prestige_score -= upgrade_cost_1p;
         localStorage.setItem("prestige_score", prestige_score);
-        document.getElementById("prestige_score").textContent = approx(prestige_score);
+        document.getElementById("prestige_counter").textContent = approx(prestige_score);
         if (current_upgrade_1p == 1) {
             document.getElementById("upgrade_cost_1p").textContent = `Upgrade maxed!`
         }
@@ -344,3 +344,4 @@ function wipe_all_data() {
     localStorage.clear();
     location.reload();
 };
+
